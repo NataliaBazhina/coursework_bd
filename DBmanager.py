@@ -1,11 +1,9 @@
 import utils
 
-
 class DBmanager:
-
-
     def __init__(self):
         self.conn = utils.setup_connection()
+
     def get_companies_and_vacancies_count(self):
         conn = self.conn
         with conn.cursor() as cur:
@@ -38,9 +36,16 @@ class DBmanager:
             )
             return cur.fetchall()
 
+    def get_vacancies_with_keyword(self,keyword):
+        conn = self.conn
+        with conn.cursor() as cur:
+            cur.execute(
+               f"SELECT vacancies_name FROM vacancies WHERE vacancies_name LIKE '%{keyword}%';"
+            )
+            return cur.fetchall()
 
 
-manager = DBmanager()
-list_of_open_vacancies = manager.get_companies_and_vacancies_count()
-for vacancy in list_of_open_vacancies:
-    print(vacancy[0])
+# manager = DBmanager()
+# list_of_open_vacancies = manager.get_companies_and_vacancies_count()
+# for vacancy in list_of_open_vacancies:
+#     print(vacancy[0])

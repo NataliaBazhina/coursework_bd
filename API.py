@@ -8,8 +8,6 @@ class APIManager:
     """Класс для работы с API"""
     URL_EMPLOYERS = "https://api.hh.ru/employers/"
     URL_VACANCIES = "https://api.hh.ru/vacancies/"
-    # url_list_of_vacancies = 'https://api.hh.ru/vacancies?employer_id='
-    # headers = {'User-Agent': 'api-test-agent'}
 
     def __init__(self, empls_list):
         self.empls_list = empls_list
@@ -76,10 +74,6 @@ class APIManager:
 # if vacancies_info:
 #     print(vacancies_info)
 
-if __name__ == "__main__":
-    api_manager = APIManager(EMPLOYERS_ID)
-    api_manager.save_vacancies_info()
-
-
-# 1)почему вакансий всего 183?
-# 2)почему скилы нигде не заполнились
+# if __name__ == "__main__":
+#     api_manager = APIManager(EMPLOYERS_ID)
+#     api_manager.save_vacancies_info()
