@@ -44,8 +44,11 @@ def main():
             elif choice == '5':
                 keyword = input("Введите ключевое слово:")
                 list_of_open_vacancies = manager.get_vacancies_with_keyword(keyword)
-                for company in list_of_open_vacancies:
-                    print(company[0])
+                if not list_of_open_vacancies:
+                    print("Нет вакансий, соответствующих данному ключевому слову.")
+                else:
+                    for company in list_of_open_vacancies:
+                        print(company[0])
 
             elif choice == '6':
                 print("Выход из программы.")
