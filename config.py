@@ -2,9 +2,8 @@ from configparser import ConfigParser
 
 
 def config(filename="database.ini", section="postgresql"):
-    # create a parser
+    """Получает параметры подключения к базе данных из файла конфигурации"""
     parser = ConfigParser()
-    # read config file
     parser.read(filename)
     db = {}
     if parser.has_section(section):

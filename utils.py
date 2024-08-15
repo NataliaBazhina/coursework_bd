@@ -3,6 +3,7 @@ from config import config
 
 
 def setup_connection():
+    """Устанавливает соединение с базой данных PostgreSQL"""
     params = config()
     try:
         with psycopg2.connect(**params) as conn:
@@ -16,12 +17,14 @@ def setup_connection():
 
 
 def create_database(database_name: str, conn:psycopg2.extensions.connection):
+    """Создает базу данных"""
     with conn.cursor() as cur:
         cur.execute(f'CREATE DATABASE {database_name}'
         )
 
 
 def create_tables(database_name: str, conn: psycopg2.extensions.connection):
+    """Создает таблицы"""
     try:
         conn.autocommit = True
         with conn.cursor() as cur:

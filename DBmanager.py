@@ -1,10 +1,12 @@
 import utils
 
 class DBmanager:
+    """Класс для работы с базой данных"""
     def __init__(self):
         self.conn = utils.setup_connection()
 
     def get_companies_and_vacancies_count(self):
+        """Получает список всех компаний и количество вакансий у каждой компании"""
         conn = self.conn
         with conn.cursor() as cur:
             cur.execute(
@@ -13,6 +15,7 @@ class DBmanager:
             return cur.fetchall()
 
     def get_all_vacancies(self):
+        """Получает список всех вакансий с указанием названия компании, названия вакансии, зарплаты и ссылки на вакансию"""
         conn = self.conn
         with conn.cursor() as cur:
             cur.execute(
@@ -21,6 +24,7 @@ class DBmanager:
             return cur.fetchall()
 
     def get_avg_salary(self):
+        """Получает среднюю зарплату по вакансиям"""
         conn = self.conn
         with conn.cursor() as cur:
             cur.execute(
@@ -29,6 +33,7 @@ class DBmanager:
             return cur.fetchall()
 
     def get_vacancies_with_higher_salary(self):
+        """Получает список всех вакансий, у которых зарплата выше средней по всем вакансиям"""
         conn = self.conn
         with conn.cursor() as cur:
             cur.execute(
@@ -37,6 +42,7 @@ class DBmanager:
             return cur.fetchall()
 
     def get_vacancies_with_keyword(self,keyword):
+        """Получает список всех вакансий по ключевому слову в названии вакансии"""
         conn = self.conn
         with conn.cursor() as cur:
             cur.execute(
