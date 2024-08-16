@@ -3,12 +3,12 @@ from DBmanager import DBmanager
 from utils import setup_connection, create_database, create_tables
 def main():
     """метод взаимодействия с пользователем"""
-    # conn = setup_connection()
-    # create_database("vacancies", conn)
-    # create_tables('vacancies', conn)
-    # api_manager = APIManager(EMPLOYERS_ID)
-    # api_manager.save_employers_info()
-    # api_manager.save_vacancies_info()
+    conn = setup_connection()
+    create_database("vacancies", conn)
+    create_tables('vacancies', conn)
+    api_manager = APIManager(EMPLOYERS_ID)
+    api_manager.save_employers_info()
+    api_manager.save_vacancies_info()
     manager = DBmanager()
     while True:
             print("\nМеню:")
