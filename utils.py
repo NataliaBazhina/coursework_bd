@@ -15,12 +15,11 @@ def setup_connection():
         print(f"An error occurred: {e}")
 
 
-
-def create_database(database_name: str, conn:psycopg2.extensions.connection):
+def create_database(database_name: str, conn: psycopg2.extensions.connection):
     """Создает базу данных"""
     with conn.cursor() as cur:
         cur.execute(f'CREATE DATABASE {database_name}'
-        )
+                    )
 
 
 def create_tables(database_name: str, conn: psycopg2.extensions.connection):
@@ -75,4 +74,3 @@ def inspect_salary_from(vacancy: dict):
 
 
 # create_tables('vacancies', conn)
-

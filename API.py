@@ -1,8 +1,8 @@
 import requests
 import utils
 
+EMPLOYERS_ID = [49357, 1942330, 3529, 80, 4181, 1740, 3022853, 41862, 23427, 84585]
 
-EMPLOYERS_ID = [49357,1942330,3529,80,4181,1740,3022853,41862,23427,84585]
 
 class APIManager:
     """Класс для работы с API"""
@@ -66,8 +66,6 @@ class APIManager:
                             ]
                         )
             conn.commit()
-
-
 
 # employer_id = EMPLOYERS_ID[0]
 # vacancies_info = api_manager.send_request_vacancies(employer_id)
